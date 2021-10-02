@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: python:3.9
-      options: '--user 1000'
     steps:
     - uses: actions/checkout@v2
     - name: Build
