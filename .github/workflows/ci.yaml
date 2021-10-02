@@ -1,0 +1,21 @@
+name: CI
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: python:3.9
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: |
+        pip install -r requirements.txt
+        python map.py
+    - uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: |
+          ./*svg
+          ./*png
