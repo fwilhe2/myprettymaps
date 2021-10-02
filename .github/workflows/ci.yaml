@@ -6,7 +6,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: python:3.9
+    container:
+      image: python:3.9
+      options: '--user 1000'
     steps:
     - uses: actions/checkout@v2
     - name: Build
